@@ -155,7 +155,7 @@ Use GET to view the information of the object whose personId is 2:
 <img src="http://paprym8rl.bkt.clouddn.com/PersonGet2.png">
 The ouputs are as followings:
 <img src="http://paprym8rl.bkt.clouddn.com/PersonGet2Response.png">
-由此可见，该对象之前的所有金额balance为100，现在所有金额balance变更为200。
+It shows that, the previous balance of the object is 100, and the current balance becomes 200.
 
 TThen we create a TradeCommodity transaction:
 <img src="http://paprym8rl.bkt.clouddn.com/TradeCommodityPost.png">
@@ -166,7 +166,7 @@ In order to verify the transaction results, we check the information off the com
 
 First, use GET to view the commodity's information:
 <img src="http://paprym8rl.bkt.clouddn.com/Commodity_checkOwner.png">
-可见，其所有者已从交易之前personId为1的对象变更为personId为2的购买者对象。
+This shows that, the owner of the commodity changes from the person whose personId is 1 to the person whose personId is 2.
 
 Next check the information of the current owner and the previous owner:
 
@@ -174,20 +174,19 @@ Previous owner(personId being 1)：
 <img src="http://paprym8rl.bkt.clouddn.com/PersonId1_checkBalance.png">
 Current owner(personId being 2)：
 <img src="http://paprym8rl.bkt.clouddn.com/PersonId2_checkBalance.png">
-可见，交易前所有者的所有金额经过此次交易，增加了10，即交易商品的价格price；而交易后所有者(购买者)的所有金额经过此次交易，减少了10，即交易商品的价格price。交易成功。
+This shows that, from the above transaction, the balance of the previoius owner increases by 10, which is the price of the commodity, while the balance of the current owner decreased by 10. Thus, the transaction succeeded.
 
 Then create a Trade transaction：
 <img src="http://paprym8rl.bkt.clouddn.com/TradePost.png">
 The ouputs are as followings:
 <img src="http://paprym8rl.bkt.clouddn.com/TradePostResponse.png">
 
-为了验证转账交易结果，我们查看转账双方以及中间人的所有金额信息：
+In order to verify the results of the Trade transaction, check the balances of transferr, transferee and intermediary:
 
-转出者信息(personId为2)：
+Transferr(personId being 2)：
 <img src="http://paprym8rl.bkt.clouddn.com/PersonId2_checkTrade.png">
-转入者信息(personId为3)：
+Transferee(personId being 3)：
 <img src="http://paprym8rl.bkt.clouddn.com/PersonId3_checkTrade.png">
-中间人信息(personId为1)：
+Intermediary(personId being 1)：
 <img src="http://paprym8rl.bkt.clouddn.com/PersonId1_checkTrade.png">
-可见，转出者(personId为2)在转账交易前所有金额为190，经过转账交易转出100，交易后所有金额变更为90；中间人(personId为1)在转账交易前所有金额为110，经过转账交易，获得转账金额
-（100）比例0.2的金额数目，交易后所有金额变更为130；转入者(personId为3)在转账交易前所有金额为100，经过转账交易，收入转账金额(100)除去给予中间人的部分所剩余的数目，交易后所有金额 变更为180。交易成功。
+It shows that, before the transaction, the balance of the transferr(personId being 2) was 190, the balance of the intermediary(personId being 1) was 110, the balance of the transferee was 100, and after transferring 100 to the transferee during the transaction, the balance of the transferr became 90, the balance of the intermediary became 130(110+0.2*100), and the balance of the transferee became 180(100+0.8*100). Thus, the transaction succeeded.
